@@ -2,7 +2,6 @@
   .nav-wrapper
     %a.brand-logo.center{:href => "#"} Logo
     %ul#nav-mobile.right.hide-on-med-and-down
-      %li
-        %a{:href => "#"} Search
-      %li
-        %a{:href => "#"} List
+      = render 'layouts/links'
+    %a.button-collapse{"data-activates" => "slide-out", :title => "Menu", :href => "#"}
+      %i.material-icons menu
