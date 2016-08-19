@@ -1,8 +1,9 @@
 .row
   .col.s12
-    %h1 Search for your Pokemon!
+    %h1.center-align Search for your Pokemon!
 .row
   .col.s12.m6
-    %button.btn#search_pokemon Search
+    = form_tag('#', remote: true, id: 'search_pokemon') do
+      %input.btn{type: 'submit', value: 'Random search'}
   .col.s12.m6
     #result

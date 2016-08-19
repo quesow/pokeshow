@@ -1,0 +1,24 @@
+.card
+  .card-image.waves-effect.waves-block.waves-light
+    %img.activator{:src => @pokemon["sprites"]["front_default"]}/
+  .card-content
+    %span.card-title.activator.grey-text.text-darken-4
+      = @pokemon["name"].capitalize
+      %i.material-icons.right more_vert
+  .card-reveal
+    %span.card-title.grey-text.text-darken-4
+      = @pokemon["name"].capitalize
+      %i.material-icons.right close
+    %p
+      %strong ID:
+      =@pokemon["id"]
+    %p
+      %strong Height:
+      =@pokemon["height"]
+    %p
+      %strong Weight:
+      =@pokemon["weight"]
+    %p
+      %strong Types:
+      -@pokemon["types"].each do |t|
+        = t['type']['name']

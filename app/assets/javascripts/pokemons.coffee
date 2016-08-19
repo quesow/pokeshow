@@ -2,9 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "turbolinks:load", ->
-  console.log('button clicked');
-  $("#search_pokemon").on "click", ->
-    $.ajax(url: "http://pokeapi.co/api/v2/pokemon/1").done (html) ->
-      console.log(html);
-      $("#result").html(html);
-      console.log('egueriwey');
+  $("#search_pokemon").on "submit",(e) ->
+    e.preventDefault();
+    console.log('button clicked');
+    $.ajax(url: "/pokemons/apicall").done (html) ->
+      $("#result").html(jQuery.parseJSON(html)['content']);
