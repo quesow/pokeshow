@@ -2,6 +2,6 @@ class PokemonsController < ApplicationController
   def index
   end
 
-  def show
+  def search
   end
 end

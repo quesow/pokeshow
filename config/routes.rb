@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'pokemons/index'
 
-  get 'pokemons/show'
+  get 'pokemons/search'
 
-  root 'pokemons#index'
+  root 'pokemons#search'
 end
