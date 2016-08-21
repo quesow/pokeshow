@@ -12,19 +12,14 @@ $(document).on "turbolinks:load", ->
     $.ajax(url: "/pokemons/apicall/")
       .done () ->
         $('#wait').detach();
-        console.log("done");
       .success (html) ->
-        console.log("success");
         $("#result").html(jQuery.parseJSON(html)['content']);
 
 $(document).on "turbolinks:load", ->
     $.each $(".pokeitem"), (index, value) ->
-      console.log( value['id'].substring(7) );
       $( "#" + value['id'] ).html("<div class='progress'><div class='indeterminate'></div></div>");
       $.ajax(url: "/pokemons/apicall/" + value['id'].substring(7))
         .done () ->
           $('#wait').detach();
-          console.log("done");
         .success (html) ->
-          console.log("success");
           $("#" + value['id']).html(jQuery.parseJSON(html)['content']);

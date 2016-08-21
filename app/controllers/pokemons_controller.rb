@@ -1,9 +1,7 @@
 class PokemonsController < ApplicationController
 
   def index
-    @num = 11
-    # require 'open-uri'
-    # @pokemon = JSON.load(open("http://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
+    @num = (params.has_key?(:id)) ? params[:id].to_i : 1
   end
 
   def apicall

@@ -1,6 +1,3 @@
 .row.section
   = (@num .. @num+11).to_a.each do |n|
-    .pokeitem.col.s12.l3{id: "pokemon" + n.to_s}= n
-
-
-    //= render 'pokeitem'
+    .center-align.pokeitem.col.s12.l3{id: "pokemon" + n.to_s}
