@@ -1,17 +1,20 @@
 class PokemonsController < ApplicationController
-  def index
-  end
 
-  def search
+  def index
+    @num = 11
+    # require 'open-uri'
+    # @pokemon = JSON.load(open("http://pokeapi.co/api/v2/pokemon/" + rand(1..721).to_s))
   end
 
   def apicall
     require 'open-uri'
-    @pokemon = JSON.load(open("http://pokeapi.co/api/v2/pokemon/" + rand(1..151).to_s))
+    @get    = (params.has_key?(:id)) ? params[:id].to_s : rand(1..721).to_s
+    @render = (params.has_key?(:id)) ? '/pokemons/pokeitem' : '/pokemons/pokedata'
+    @pokemon = JSON.load(open("http://pokeapi.co/api/v2/pokemon/" + @get))
     respond_to do |format|
       format.html {
         render json: {
-          content: (render_to_string partial: '/pokemons/pokedata', layout: false )
+          content: (render_to_string partial: @render, layout: false )
         }
       }
       format.js {}

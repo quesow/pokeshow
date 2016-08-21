@@ -1,2 +1,6 @@
-%h1 WORK IN PROGRESS
-%p Ajax+Pagination
+.row.section
+  = (@num .. @num+11).to_a.each do |n|
+    .pokeitem.col.s12.l3{id: "pokemon" + n.to_s}= n
+
+
+    //= render 'pokeitem'
