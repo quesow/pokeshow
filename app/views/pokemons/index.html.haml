@@ -1,17 +1,17 @@
 .row.section
-  = (@num .. @num+11).to_a.each do |n|
+  - (@num .. @num+11).to_a.each do |n|
     .center-align.pokeitem.col.s12.l3{id: "pokemon" + n.to_s}
 
-//.row
-//  %ul.pagination.center-align
-//    %li.waves-effect
-//      %a{:href => "/pokemons/index/1"}
-//        %i.material-icons chevron_left
-//
-//    = (1 .. 59).to_a.each do |n|
-//      %li
-//        %a{:href => "/pokemons/index/" + n.to_s}= n.to_s
-//
-//    %li.waves-effect
-//      %a{:href => "/pokemons/index/60"}
-//        %i.material-icons chevron_right
+.row
+  %ul.pagination.center-align
+    %li.waves-effect
+      %a{:href => "/pokemons/index/1"}
+        %i.material-icons chevron_left
+
+    - (0 .. 66).to_a.each do |n|
+      %li.waves-effect
+        %a{:href => "/pokemons/index/" + (12*n).to_s}= n.to_s
+
+    %li.waves-effect
+      %a{:href => "/pokemons/index/" + (12*67).to_s}
+        %i.material-icons chevron_right
